@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -8,318 +9,440 @@
 
 <style>
 
-    * {
-        box-sizing: border-box;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    html, body {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        background: #000;
-        color: #fff;
-        font-family: Arial, Helvetica, sans-serif;
-    }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #e8f7ff;
+    color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
-    body {
-        display: flex;
-        flex-direction: column;
-    }
+body {
+    display: flex;
+    flex-direction: column;
+}
 
-    /* =========================
-       HEADER
-       ========================= */
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+    height: 115px;
+    background: #fff;
+    color: #000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 45px;
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 46px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    font-size: 23px;
+    font-weight: 400;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+.updated {
+    text-align: right;
+    font-size: 17px;
+    color: #555;
+}
+
+.updated strong {
+    color: #000;
+    font-size: 23px;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+.main {
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 25px 35px 20px;
+}
+
+.section-title {
+    font-size: 30px;
+    font-weight: 900;
+    margin-bottom: 18px;
+    letter-spacing: .5px;
+}
+
+.section-title span {
+    font-size: 20px;
+    font-weight: normal;
+    font-style: italic;
+    margin-left: 10px;
+    opacity: .65;
+}
+
+
+/* =========================
+   HOURLY
+   ========================= */
+
+.hourly {
+    display: grid;
+    grid-template-columns: repeat(13, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.hour {
+    background: #c9edff;
+    border: 2px solid #8bc9e6;
+    border-radius: 10px;
+
+    min-width: 0;
+    height: 210px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 5px;
+}
+
+.hour.current {
+    border: 4px solid #000;
+    background: #a9def5;
+}
+
+
+/* TIME */
+
+.hour-time {
+    font-size: 22px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+
+/* WEATHER EMOJI */
+
+.weather-icon {
+    font-size: 64px;
+    line-height: 1;
+
+    height: 75px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* TEMPERATURE */
+
+.temperature {
+    font-size: 34px;
+    font-weight: 900;
+}
+
+
+/* RAIN */
+
+.rain {
+    font-size: 16px;
+    font-weight: 700;
+    min-height: 20px;
+}
+
+
+/* =========================
+   ICON COLORS
+   ========================= */
+
+.sun {
+    color: #ffd21c;
+}
+
+.partly {
+    color: #ffd21c;
+}
+
+.cloud {
+    color: #777;
+}
+
+.rain-icon {
+    color: #2196f3;
+}
+
+.storm {
+    color: #8e44ad;
+}
+
+.snow {
+    color: #2196f3;
+}
+
+.fog {
+    color: #777;
+}
+
+
+/* =========================
+   DAILY
+   ========================= */
+
+.daily-section {
+    margin-top: 30px;
+
+    flex: 1;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.daily {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    gap: 15px;
+
+    flex: 1;
+    min-height: 0;
+}
+
+.day {
+    background: #c9edff;
+    border: 2px solid #8bc9e6;
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 18px 10px;
+
+    min-width: 0;
+}
+
+.day.today {
+    background: #a9def5;
+    border: 4px solid #000;
+}
+
+
+/* DAY NAME */
+
+.day-name {
+    font-size: 27px;
+    font-weight: 900;
+}
+
+
+/* DATE */
+
+.day-date {
+    font-size: 17px;
+    font-weight: 600;
+    opacity: .65;
+}
+
+
+/* BIG DAILY EMOJI */
+
+.day-icon {
+    font-size: 72px;
+    line-height: 1;
+
+    margin: 8px 0;
+}
+
+
+/* CONDITION */
+
+.day-condition {
+    font-size: 17px;
+    font-weight: 700;
+
+    text-align: center;
+
+    min-height: 22px;
+}
+
+
+/* MAX TEMPERATURE */
+
+.day-temp {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+
+/* MIN TEMPERATURE */
+
+.day-min {
+    font-size: 21px;
+    font-weight: 600;
+    opacity: .55;
+
+    margin-top: 3px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    height: 28px;
+    flex-shrink: 0;
+
+    text-align: center;
+
+    font-size: 13px;
+    color: #555;
+}
+
+
+/* =========================
+   ERROR
+   ========================= */
+
+.error {
+    color: #d00000;
+
+    text-align: center;
+
+    font-size: 25px;
+    font-weight: 700;
+
+    padding: 30px;
+}
+
+
+/* =========================
+   SMALLER SCREENS
+   ========================= */
+
+@media (max-width: 1400px) {
 
     .header {
-        height: 105px;
-        background: #fff;
-        color: #000;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 38px;
-        flex-shrink: 0;
+        height: 95px;
+        padding: 0 25px;
     }
 
     .title {
-        font-size: 38px;
-        font-weight: 800;
-        letter-spacing: 1px;
+        font-size: 36px;
     }
 
     .subtitle {
         font-size: 18px;
-        font-weight: 400;
-        font-style: italic;
-        margin-top: 4px;
     }
-
-    .updated {
-        text-align: right;
-        font-size: 15px;
-        color: #555;
-    }
-
-    .updated strong {
-        color: #000;
-        font-size: 18px;
-    }
-
-    /* =========================
-       MAIN
-       ========================= */
 
     .main {
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-        padding: 22px 30px 25px;
+        padding: 18px;
     }
-
-    .section-title {
-        font-size: 23px;
-        font-weight: 800;
-        margin-bottom: 15px;
-        letter-spacing: .5px;
-    }
-
-    .section-title span {
-        font-size: 16px;
-        font-weight: normal;
-        font-style: italic;
-        margin-left: 8px;
-        opacity: .65;
-    }
-
-    /* =========================
-       HOURLY
-       ========================= */
 
     .hourly {
-        display: grid;
-        grid-template-columns: repeat(13, 1fr);
-        gap: 8px;
-        width: 100%;
+        gap: 6px;
     }
 
     .hour {
-        background: #111;
-        border: 1px solid #292929;
-        border-radius: 8px;
-        min-width: 0;
-        height: 178px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 4px;
+        height: 180px;
     }
 
-    .hour.current {
-        border: 2px solid #fff;
-        background: #181818;
+    .weather-icon {
+        font-size: 52px;
+    }
+
+    .temperature {
+        font-size: 27px;
     }
 
     .hour-time {
-        font-size: 17px;
-        font-weight: 800;
+        font-size: 18px;
+    }
+
+    .day-icon {
+        font-size: 58px;
+    }
+
+    .day-name {
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================
+   VERY SMALL SCREENS
+   ========================= */
+
+@media (max-width: 1000px) {
+
+    .title {
+        font-size: 28px;
+    }
+
+    .hour {
+        height: 150px;
+        padding: 10px 3px;
     }
 
     .weather-icon {
         font-size: 42px;
-        line-height: 1;
-        height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     .temperature {
-        font-size: 25px;
-        font-weight: 800;
+        font-size: 22px;
     }
 
-    .rain {
-        font-size: 12px;
-        min-height: 16px;
-        opacity: .8;
-    }
-
-    /* =========================
-       ICON COLORS
-       ========================= */
-
-    .sun {
-        color: #ffd21c;
-    }
-
-    .partly {
-        color: #ffd21c;
-    }
-
-    .cloud {
-        color: #bfc4c9;
-    }
-
-    .rain-icon {
-        color: #42a5f5;
-    }
-
-    .storm {
-        color: #b66cff;
-    }
-
-    .snow {
-        color: #8fd3ff;
-    }
-
-    .fog {
-        color: #aaa;
-    }
-
-    /* =========================
-       DAILY
-       ========================= */
-
-    .daily-section {
-        margin-top: 28px;
-        flex: 1;
-        min-height: 0;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .daily {
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        gap: 12px;
-        flex: 1;
-        min-height: 0;
-    }
-
-    .day {
-        background: #111;
-        border: 1px solid #292929;
-        border-radius: 10px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        padding: 15px 8px;
-        min-width: 0;
-    }
-
-    .day.today {
-        background: #181818;
-        border: 2px solid #fff;
-    }
-
-    .day-name {
-        font-size: 20px;
-        font-weight: 800;
-    }
-
-    .day-date {
-        font-size: 13px;
-        opacity: .6;
-        margin-top: -4px;
+    .hour-time {
+        font-size: 14px;
     }
 
     .day-icon {
-        font-size: 48px;
-        line-height: 1;
-        margin: 8px 0;
+        font-size: 45px;
     }
 
-    .day-condition {
-        font-size: 13px;
-        opacity: .7;
-        text-align: center;
-        min-height: 18px;
+    .day-name {
+        font-size: 18px;
     }
 
     .day-temp {
-        font-size: 22px;
-        font-weight: 800;
+        font-size: 24px;
     }
 
-    .day-min {
-        font-size: 15px;
-        opacity: .55;
-        margin-top: 3px;
-    }
-
-    /* =========================
-       FOOTER
-       ========================= */
-
-    .footer {
-        height: 30px;
-        flex-shrink: 0;
-        text-align: center;
-        font-size: 11px;
-        color: #555;
-    }
-
-    /* =========================
-       ERROR
-       ========================= */
-
-    .error {
-        color: #ff5555;
-        text-align: center;
-        font-size: 20px;
-        padding: 30px;
-    }
-
-    /* =========================
-       RESPONSIVE
-       ========================= */
-
-    @media (max-width: 1100px) {
-
-        .header {
-            height: 85px;
-            padding: 0 20px;
-        }
-
-        .title {
-            font-size: 28px;
-        }
-
-        .hourly {
-            gap: 4px;
-        }
-
-        .hour {
-            height: 145px;
-        }
-
-        .weather-icon {
-            font-size: 32px;
-        }
-
-        .temperature {
-            font-size: 20px;
-        }
-
-        .hour-time {
-            font-size: 14px;
-        }
-
-        .main {
-            padding: 15px;
-        }
-    }
+}
 
 </style>
 </head>
 
 
 <body>
+
 
 <!-- =========================
      HEADER
@@ -328,6 +451,7 @@
 <header class="header">
 
     <div>
+
         <div class="title">
             WEIMAR SÜDSTADT
         </div>
@@ -335,15 +459,24 @@
         <div class="subtitle">
             Wetter · Weather
         </div>
+
     </div>
 
+
     <div class="updated">
+
         AKTUALISIERT
+
         <br>
-        <strong id="updatedTime">--:--</strong>
+
+        <strong id="updatedTime">
+            --:--
+        </strong>
+
     </div>
 
 </header>
+
 
 
 <!-- =========================
@@ -352,139 +485,232 @@
 
 <main class="main">
 
+
+    <!-- HOURLY -->
+
     <div class="section-title">
+
         HEUTE
-        <span>Today · 2-stündlich</span>
+
+        <span>
+            Today · 2-stündlich
+        </span>
+
     </div>
 
-    <div id="hourly" class="hourly">
-        <!-- JavaScript fills this -->
+
+    <div
+        id="hourly"
+        class="hourly"
+    >
     </div>
 
+
+
+    <!-- DAILY -->
 
     <section class="daily-section">
 
+
         <div class="section-title">
+
             7 TAGE
-            <span>7-day forecast</span>
+
+            <span>
+                7-day forecast
+            </span>
+
         </div>
 
-        <div id="daily" class="daily">
-            <!-- JavaScript fills this -->
+
+        <div
+            id="daily"
+            class="daily"
+        >
         </div>
+
 
     </section>
+
 
 </main>
 
 
+
 <footer class="footer">
+
     Weather data: Open-Meteo · DWD / ICON
+
 </footer>
 
 
 
 <script>
 
+
 /* =========================================================
-   LOCATION
-   Weimar Südstadt
+   WEIMAR SÜDSTADT
    ========================================================= */
 
 const LATITUDE = 50.966747;
+
 const LONGITUDE = 11.329028;
 
 
+
 /* =========================================================
-   OPEN-METEO API
+   OPEN-METEO
    ========================================================= */
 
 const API_URL =
+
     "https://api.open-meteo.com/v1/forecast" +
+
     "?latitude=" + LATITUDE +
+
     "&longitude=" + LONGITUDE +
+
     "&timezone=Europe%2FBerlin" +
+
     "&forecast_days=7" +
+
     "&temperature_unit=celsius" +
+
     "&hourly=" +
+
         "temperature_2m," +
+
         "weather_code," +
+
         "precipitation_probability" +
+
     "&daily=" +
+
         "weather_code," +
+
         "temperature_2m_max," +
+
         "temperature_2m_min";
 
 
+
 /* =========================================================
-   REQUEST WEATHER
+   LOAD WEATHER
    ========================================================= */
 
 async function loadWeather() {
 
     try {
 
-        const response = await fetch(API_URL);
+        const response =
+            await fetch(API_URL);
+
 
         if (!response.ok) {
-            throw new Error("Weather API error");
+
+            throw new Error(
+                "Weather API error"
+            );
+
         }
 
-        const data = await response.json();
+
+        const data =
+            await response.json();
+
 
         renderHourly(data);
+
         renderDaily(data);
 
         updateTime();
+
 
     } catch (error) {
 
         console.error(error);
 
-        document.getElementById("hourly").innerHTML =
-            '<div class="error">Wetterdaten momentan nicht verfügbar</div>';
+
+        document.getElementById(
+            "hourly"
+        ).innerHTML =
+
+            '<div class="error">' +
+            'Wetterdaten momentan nicht verfügbar' +
+            '</div>';
 
     }
 
 }
 
 
+
 /* =========================================================
-   WEATHER CODE
-   WMO WEATHER CODES
+   WEATHER SYMBOLS
    ========================================================= */
 
 function weather(code, isDay = true) {
 
+
     if (code === 0) {
 
         return {
-            icon: isDay ? "☀️" : "🌙",
-            className: "sun",
-            text: "Klar"
+
+            icon:
+                isDay
+                ? "☀️"
+                : "🌙",
+
+            className:
+                "sun",
+
+            text:
+                "Klar"
+
         };
 
     }
 
-    if (code === 1 || code === 2) {
+
+    if (
+        code === 1 ||
+        code === 2
+    ) {
 
         return {
-            icon: isDay ? "🌤️" : "☁️",
-            className: "partly",
-            text: "Teilweise bewölkt"
+
+            icon:
+                isDay
+                ? "🌤️"
+                : "☁️",
+
+            className:
+                "partly",
+
+            text:
+                "Teilweise bewölkt"
+
         };
 
     }
+
 
     if (code === 3) {
 
         return {
+
             icon: "☁️",
-            className: "cloud",
-            text: "Bewölkt"
+
+            className:
+                "cloud",
+
+            text:
+                "Bewölkt"
+
         };
 
     }
+
 
     if (
         code === 45 ||
@@ -492,12 +718,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "🌫️",
-            className: "fog",
-            text: "Nebel"
+
+            className:
+                "fog",
+
+            text:
+                "Nebel"
+
         };
 
     }
+
 
     if (
         code === 51 ||
@@ -508,12 +741,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "🌦️",
-            className: "rain-icon",
-            text: "Nieselregen"
+
+            className:
+                "rain-icon",
+
+            text:
+                "Nieselregen"
+
         };
 
     }
+
 
     if (
         code === 61 ||
@@ -524,12 +764,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "🌧️",
-            className: "rain-icon",
-            text: "Regen"
+
+            className:
+                "rain-icon",
+
+            text:
+                "Regen"
+
         };
 
     }
+
 
     if (
         code === 71 ||
@@ -539,12 +786,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "❄️",
-            className: "snow",
-            text: "Schnee"
+
+            className:
+                "snow",
+
+            text:
+                "Schnee"
+
         };
 
     }
+
 
     if (
         code === 80 ||
@@ -553,12 +807,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "🌦️",
-            className: "rain-icon",
-            text: "Regenschauer"
+
+            className:
+                "rain-icon",
+
+            text:
+                "Regenschauer"
+
         };
 
     }
+
 
     if (
         code === 85 ||
@@ -566,12 +827,19 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "🌨️",
-            className: "snow",
-            text: "Schneeschauer"
+
+            className:
+                "snow",
+
+            text:
+                "Schneeschauer"
+
         };
 
     }
+
 
     if (
         code === 95 ||
@@ -580,45 +848,69 @@ function weather(code, isDay = true) {
     ) {
 
         return {
+
             icon: "⛈️",
-            className: "storm",
-            text: "Gewitter"
+
+            className:
+                "storm",
+
+            text:
+                "Gewitter"
+
         };
 
     }
 
+
     return {
+
         icon: "🌤️",
-        className: "cloud",
-        text: "Wetter"
+
+        className:
+            "cloud",
+
+        text:
+            "Wetter"
+
     };
 
 }
 
 
+
 /* =========================================================
-   DETERMINE DAY / NIGHT
+   DAY / NIGHT
    ========================================================= */
 
 function isDayTime(hour) {
 
-    return hour >= 7 && hour < 21;
+    return (
+        hour >= 7 &&
+        hour < 21
+    );
 
 }
 
 
+
 /* =========================================================
-   HOURLY DISPLAY
+   HOURLY FORECAST
    ========================================================= */
 
 function renderHourly(data) {
 
+
     const container =
-        document.getElementById("hourly");
+        document.getElementById(
+            "hourly"
+        );
+
 
     container.innerHTML = "";
 
+
     const requestedHours = [
+
         0,
         2,
         4,
@@ -632,47 +924,75 @@ function renderHourly(data) {
         18,
         20,
         22
+
     ];
 
-    const now = new Date();
+
+    const now =
+        new Date();
+
 
     const today =
-        now.toISOString()
-           .slice(0, 10);
+        new Intl.DateTimeFormat(
+            "en-CA",
+            {
+                timeZone:
+                    "Europe/Berlin"
+            }
+        ).format(now);
+
 
 
     requestedHours.forEach(hour => {
 
+
+        const targetTime =
+
+            `${today}T${String(hour).padStart(2, "0")}:00`;
+
+
         const index =
+
             data.hourly.time.findIndex(
-                time => time === `${today}T${String(hour).padStart(2, "0")}:00`
+                time =>
+                    time === targetTime
             );
 
 
         if (index === -1) {
+
             return;
+
         }
 
 
         const temperature =
+
             Math.round(
-                data.hourly.temperature_2m[index]
+                data.hourly
+                    .temperature_2m[index]
             );
 
 
         const code =
-            data.hourly.weather_code[index];
+
+            data.hourly
+                .weather_code[index];
 
 
         const rain =
-            data.hourly.precipitation_probability[index];
+
+            data.hourly
+                .precipitation_probability[index];
 
 
         const current =
+
             now.getHours() === hour;
 
 
         const info =
+
             weather(
                 code,
                 isDayTime(hour)
@@ -680,11 +1000,20 @@ function renderHourly(data) {
 
 
         const card =
-            document.createElement("div");
+
+            document.createElement(
+                "div"
+            );
+
 
         card.className =
+
             "hour" +
-            (current ? " current" : "");
+            (
+                current
+                ? " current"
+                : ""
+            );
 
 
         card.innerHTML = `
@@ -702,32 +1031,44 @@ function renderHourly(data) {
             </div>
 
             <div class="rain">
-                ${rain > 0 ? "💧 " + rain + "%" : ""}
+                ${
+                    rain > 0
+                    ? "💧 " + rain + "%"
+                    : ""
+                }
             </div>
 
         `;
 
 
-        container.appendChild(card);
+        container.appendChild(
+            card
+        );
 
     });
 
 }
 
 
+
 /* =========================================================
-   DAILY DISPLAY
+   7 DAY FORECAST
    ========================================================= */
 
 function renderDaily(data) {
 
+
     const container =
-        document.getElementById("daily");
+        document.getElementById(
+            "daily"
+        );
+
 
     container.innerHTML = "";
 
 
     const weekdays = [
+
         "SO",
         "MO",
         "DI",
@@ -735,6 +1076,7 @@ function renderDaily(data) {
         "DO",
         "FR",
         "SA"
+
     ];
 
 
@@ -744,53 +1086,81 @@ function renderDaily(data) {
         i++
     ) {
 
+
         const date =
+
             new Date(
-                data.daily.time[i] + "T12:00:00"
+                data.daily.time[i] +
+                "T12:00:00"
             );
 
 
         const dayName =
-            weekdays[date.getDay()];
+
+            weekdays[
+                date.getDay()
+            ];
 
 
         const dateText =
+
             date.toLocaleDateString(
                 "de-DE",
                 {
-                    day: "2-digit",
-                    month: "2-digit"
+                    day:
+                        "2-digit",
+
+                    month:
+                        "2-digit"
                 }
             );
 
 
         const max =
+
             Math.round(
-                data.daily.temperature_2m_max[i]
+                data.daily
+                    .temperature_2m_max[i]
             );
 
 
         const min =
+
             Math.round(
-                data.daily.temperature_2m_min[i]
+                data.daily
+                    .temperature_2m_min[i]
             );
 
 
         const code =
-            data.daily.weather_code[i];
+
+            data.daily
+                .weather_code[i];
 
 
         const info =
-            weather(code, true);
+
+            weather(
+                code,
+                true
+            );
 
 
         const card =
-            document.createElement("div");
+
+            document.createElement(
+                "div"
+            );
 
 
         card.className =
+
             "day" +
-            (i === 0 ? " today" : "");
+            (
+                i === 0
+                ? " today"
+                : ""
+            );
 
 
         card.innerHTML = `
@@ -812,6 +1182,7 @@ function renderDaily(data) {
             </div>
 
             <div>
+
                 <div class="day-temp">
                     ${max}°
                 </div>
@@ -819,45 +1190,60 @@ function renderDaily(data) {
                 <div class="day-min">
                     ${min}°
                 </div>
+
             </div>
 
         `;
 
 
-        container.appendChild(card);
+        container.appendChild(
+            card
+        );
 
     }
 
 }
 
 
+
 /* =========================================================
-   UPDATE CLOCK
+   CLOCK
    ========================================================= */
 
 function updateTime() {
 
-    const now = new Date();
 
-    document.getElementById("updatedTime")
-        .textContent =
-            now.toLocaleTimeString(
-                "de-DE",
-                {
-                    hour: "2-digit",
-                    minute: "2-digit"
-                }
-            );
+    const now =
+        new Date();
+
+
+    document.getElementById(
+        "updatedTime"
+    ).textContent =
+
+        now.toLocaleTimeString(
+            "de-DE",
+            {
+                hour:
+                    "2-digit",
+
+                minute:
+                    "2-digit"
+            }
+        );
 
 }
 
 
+
 /* =========================================================
-   AUTOMATIC UPDATES
-   Every 10 minutes
+   START
    ========================================================= */
 
 loadWeather();
+
+
+/* Refresh weather every 10 minutes */
 
 setInterval(
     loadWeather,
@@ -865,14 +1251,16 @@ setInterval(
 );
 
 
-/* Update displayed clock every minute */
+/* Refresh clock every minute */
 
 setInterval(
     updateTime,
     60 * 1000
 );
 
+
 </script>
 
 </body>
 </html>
+```
